@@ -5,8 +5,6 @@ var hotel = [['welly', 'Kiel'],
     ['dwarf', 'Berlin'],
     ['hide', 'Berlin'],
     ['flash', 'Berlin'],    
-    ['Amity', 'Potsdam'],
-    ['Hub', 'Düsseldorf'],
     ['Form', 'Stuttgart'],
     ['Fury', 'Aschheim'],
     ['Air', 'Frankfurt am Main'],
@@ -18,7 +16,6 @@ var hotel = [['welly', 'Kiel'],
     ['Dairy', 'Haarlem'],
     ['Loom', 'Manchester'],    
     ['Franz', 'Wien'],
-    ['Hub', 'Düsseldorf'],
     ['Form', 'Stuttgart'],
     ['Loco', 'München'],
     ['Mesh', 'Stuttgart'],
@@ -41,13 +38,14 @@ var hotel = [['welly', 'Kiel'],
     ['Leo', 'Nürnberg'],
     ['Tab', 'Düsseldorf'],
     ['Seven', 'Düsseldorf']];
-var arrivalDate;
-var departureDate;
+
+    //nicht buchbar aktuell:  ['Amity', 'Potsdam'], ['Hub', 'Düsseldorf'], ['Hub', 'Düsseldorf'],
+
+var arrivalDate, departureDate, link;
 var adults = 1;
 var rooms = 1;
-var link;
 var hotelPrices = [];
-var tageImVoraus = 2;
+var tageImVoraus = 100;
 var browser = '';
 
 
@@ -60,10 +58,13 @@ const prices = async () => {
             link = 'https://onepagebooking.com/niu' + hotel[i][0] + '?module=public&rooms=' + rooms + '&arrival=' + arrivalDate + '&departure=' + departureDate + '&adults=' + adults;
             var price = await getPrice(hotel[i][0], arrivalDate, link);
             if (price == null) {
-                console.log("The NIU " + hotel[i][0].charAt(0).toUpperCase() + hotel[i][0].slice(1) + " in " + hotel[i][1] + " ist am " + arrivalDate + " nicht buchbar.");
-            }else if (price < 100) {
-                    console.log("The NIU " + hotel[i][0].charAt(0).toUpperCase() + hotel[i][0].slice(1) + " in " + hotel[i][1] + " für " + price + "€ am " + arrivalDate + " gefunden.");
+                console.log("------- The NIU " + hotel[i][0].charAt(0).toUpperCase() + hotel[i][0].slice(1) + " in " + hotel[i][1] + " ist am " + arrivalDate + " nicht buchbar. -------");
+            }else if (price < 60) {
+                    console.log("----------------------------------------------------------------- \n The NIU " + hotel[i][0].charAt(0).toUpperCase() + hotel[i][0].slice(1) + " in " + hotel[i][1] + " für " + price + "€ am " + arrivalDate + " gefunden.\n-----------------------------------------------------------------");
                     hotelPrices.push([arrivalDate, "The NIU " + hotel[i][0].charAt(0).toUpperCase() + hotel[i][0].slice(1) + " in " + hotel[i][1], price])
+            }
+            else if (price >= 60) {
+                    console.log("The NIU " + hotel[i][0].charAt(0).toUpperCase() + hotel[i][0].slice(1) + " in " + hotel[i][1] + " für " + price + "€ am " + arrivalDate + " gefunden.");
                 }
         }
     }
