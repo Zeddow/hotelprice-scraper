@@ -1,0 +1,23 @@
+{
+  "name": "hotelprice-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "crap price.js",
+  "dependencies": {
+    "puppeteer": "^18.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zeddow/hotelprice-scraper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zeddow/hotelprice-scraper/issues"
+  },
+  "homepage": "https://github.com/Zeddow/hotelprice-scraper#readme"
+}
