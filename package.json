@@ -4,7 +4,12 @@
   "description": "",
   "main": "crap price.js",
   "dependencies": {
-    "puppeteer": "^18.0.5"
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "pdf-parse": "^1.1.1",
+    "pdf2json": "^3.0.0",
+    "puppeteer": "^18.0.5",
+    "user-agents": "^1.0.1164"
   },
   "devDependencies": {},
   "scripts": {
